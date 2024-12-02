@@ -269,6 +269,7 @@ TESTS +=  \
 	allowed-sender-tcp-fail.sh \
 	allowed-sender-tcp-hostname-ok.sh \
 	allowed-sender-tcp-hostname-fail.sh \
+	imtcp-octet-framing-too-long-vg.sh \
 	imtcp-discard-truncated-msg.sh \
 	imtcp-basic.sh \
 	imtcp-basic-hup.sh \
@@ -921,6 +922,25 @@ endif # HAVE_VALGRIND
 endif # ENABLE_IMDOCKER_TESTS
 endif # ENABLE_IMDOCKER
 
+if ENABLE_IMHTTP
+TESTS += \
+	imhttp-post-payload.sh \
+	imhttp-post-payload-large.sh \
+	imhttp-post-payload-multi.sh \
+	imhttp-post-payload-multi-lf.sh \
+	imhttp-post-payload-compress.sh \
+	imhttp-getrequest-file.sh
+if HAVE_VALGRIND
+TESTS +=  \
+	imhttp-post-payload-vg.sh \
+	imhttp-post-payload-large-vg.sh \
+	imhttp-post-payload-multi-vg.sh \
+	imhttp-post-payload-multi-lf-vg.sh \
+	imhttp-post-payload-compress-vg.sh \
+	imhttp-getrequest-file-vg.sh
+endif # HAVE_VALGRIND
+endif # ENABLE_IMHTTP
+
 if ENABLE_OMRABBITMQ
 check_PROGRAMS += miniamqpsrvr
 miniamqpsrvr_SOURCES = miniamqpsrvr.c
@@ -983,6 +1003,7 @@ if ENABLE_IMPTCP
 # need to be disabled if we do not have this module
 TESTS +=  \
 	manyptcp.sh \
+	imptcp-octet-framing-too-long-vg.sh \
 	imptcp_framing_regex.sh \
 	imptcp_framing_regex-oversize.sh \
 	imptcp_large.sh \
@@ -1865,6 +1886,7 @@ EXTRA_DIST= \
 	mmjsonparse_simple.sh \
 	mmjsonparse-invalid-containerName.sh \
 	wtpShutdownAll-assertionFailure.sh \
+	imptcp-octet-framing-too-long-vg.sh \
 	imptcp-oversize-message-display.sh \
 	imptcp-msg-truncation-on-number.sh \
 	imptcp-msg-truncation-on-number2.sh \
@@ -1941,6 +1963,7 @@ EXTRA_DIST= \
 	allowed-sender-tcp-fail.sh \
 	allowed-sender-tcp-hostname-ok.sh \
 	allowed-sender-tcp-hostname-fail.sh \
+	imtcp-octet-framing-too-long-vg.sh \
 	imtcp-discard-truncated-msg.sh \
 	imtcp-basic.sh \
 	imtcp-basic-hup.sh \
@@ -2100,6 +2123,20 @@ EXTRA_DIST= \
 	improg_prog_killonclose.sh \
 	improg_prog_simple-vg.sh \
 	improg_simple_multi.sh \
+	imhttp-post-payload.sh \
+	imhttp-post-payload-vg.sh \
+	imhttp-post-payload-large.sh \
+	imhttp-post-payload-large-vg.sh \
+	testsuites/imhttp-large-data.txt \
+	imhttp-post-payload-multi.sh \
+	imhttp-post-payload-multi-vg.sh \
+	imhttp-getrequest-file.sh \
+	imhttp-getrequest-file-vg.sh \
+	imhttp-post-payload-multi-lf.sh \
+	imhttp-post-payload-multi-lf-vg.sh \
+	imhttp-post-payload-compress.sh \
+	imhttp-post-payload-compress-vg.sh \
+	testsuites/docroot/file.txt \
 	omhttp-auth.sh \
 	omhttp-basic.sh \
 	omhttp-batch-fail-with-400.sh \
