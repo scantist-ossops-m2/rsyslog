@@ -88,6 +88,9 @@ TESTS +=  \
 	validation-run.sh \
 	empty-ruleset.sh \
 	imtcp-basic.sh \
+	imtcp-maxFrameSize.sh \
+	imtcp-msg-truncation-on-number.sh \
+	imtcp-msg-truncation-on-number2.sh \
 	imtcp-NUL.sh \
 	imtcp-NUL-rawmsg.sh \
 	imtcp-multiport.sh \
@@ -858,6 +861,9 @@ EXTRA_DIST= \
 	empty-ruleset.sh \
 	testsuites/empty-ruleset.conf \
 	imtcp-basic.sh \
+	imtcp-maxFrameSize.sh \
+	imtcp-msg-truncation-on-number.sh \
+	imtcp-msg-truncation-on-number2.sh \
 	imtcp-NUL.sh \
 	imtcp-NUL-rawmsg.sh \
 	imtcp-tls-basic.sh \
